@@ -40,6 +40,51 @@ Finally, verify the new endpoint is working by trying it out by going to the `/d
 🚀 Congratulations, through the exercise, you haven't only used copilot to generate code but also done it in an interactive and fun way! You can use GitHub Copilot to not only generate code, but write documentation, test your applications and more.
 
 
+---
+
+## API Routes
+
+### `GET /`
+- **Description:**  
+  Serves the main HTML page (`index.html`) for the web application UI.
+
+### `POST /generate`
+- **Description:**  
+  Generates a pseudo-random token.
+- **Request Body:**  
+  ```json
+  {
+    "length": 20  // Optional, integer. Length of the token (default: 20)
+  }
+  ```
+- **Response:**  
+  ```json
+  {
+    "token": "string"
+  }
+  ```
+
+### `POST /checksum`
+- **Description:**  
+  Calculates a simple checksum of the provided text.
+- **Request Body:**  
+  ```json
+  {
+    "text": "Hello, world!"
+  }
+  ```
+- **Response:**  
+  ```json
+  {
+    "checksum": 33
+  }
+  ```
+
+### `GET /ui/*`
+- **Description:**  
+  Serves static files (CSS, HTML) for the web UI from the `/webapp/static/` directory.
+
+
 ## Legal Notices
 
 Microsoft and any contributors grant you a license to the Microsoft documentation and other content
