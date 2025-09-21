@@ -35,3 +35,19 @@ def generate(body: Body):
     """
     string = base64.b64encode(os.urandom(64))[:body.length].decode('utf-8')
     return {'token': string}
+
+    class TextBody(BaseModel):
+        text: str
+#Create a FastAPI endpoint that accepts a POST request with a JSON body containing a single field called "text" and returns a checksum of the text.
+@app.post('/checksum')
+def checksum(body: TextBody):
+    """
+    Generate a checksum of the provided text. Example POST request body:
+
+    {
+        "text": "your text here"
+    }
+    """
+    import hashlib
+    checksum_value = hashlib.md5(body.text.encode()).hexdigest()
+    return {'checksum': checksum_value}
